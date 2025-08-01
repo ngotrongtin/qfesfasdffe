@@ -11,7 +11,7 @@ Game::~Game() {
 }
 
 void Game::initialize() {
-    // Initialization code
+    this->player = Player(); 
 }
 
 void Game::update() {
@@ -22,9 +22,12 @@ void Game::update() {
         // Handle other events here
     }
 }
-
+void Game::draw() {
+    this->window.draw(this->player.getShape());
+}
 void Game::render() {
     this->window.clear(); // Clear the window
+    this->draw(); // Call the draw function
     this->window.display(); // Display the rendered frame
     // Render code
 }

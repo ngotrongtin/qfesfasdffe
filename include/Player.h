@@ -1,4 +1,5 @@
 #include <SFML/Graphics.hpp>
+
 using namespace sf;
 
 class Player {
@@ -7,7 +8,7 @@ private:
 public:
     Player();
     ~Player();
-
-    void update();
-    void render(RenderWindow &window);
+    Shape& getShape() {
+        return this->shape;
+    }
 };

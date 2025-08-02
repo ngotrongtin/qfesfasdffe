@@ -1,13 +1,18 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include "Player.h"
+#include "Common.h"
 using namespace sf;
 class Game {
 private:
+    // instances
     RenderWindow window;
     Event event;
     VideoMode videoMode;
     Player player;
+    // variables
+    const int DEFAULT_VIDEO_MODE_WIDTH = 800;
+    const int DEFAULT_VIDEO_MODE_HEIGHT = 600;
 public:
     Game();
     ~Game();

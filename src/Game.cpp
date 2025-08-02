@@ -1,9 +1,9 @@
 #include "Game.h"
 Game::Game() {
     // Constructor implementation
-    this->videoMode = VideoMode(800, 600); // Set default video mode
+    this->videoMode = VideoMode(this->DEFAULT_VIDEO_MODE_WIDTH, this->DEFAULT_VIDEO_MODE_HEIGHT); // Set default video mode
     this->window.create(this->videoMode, "SFML Game", sf::Style::Default);
-    this->window.setFramerateLimit(60); // Set frame rate limit
+    this->window.setFramerateLimit(GAME::DEFAULT_FRAME_RATE_LIMIT); // Set frame rate limit
 }
 
 Game::~Game() {
@@ -23,7 +23,8 @@ void Game::update() {
     }
 }
 void Game::draw() {
-    this->window.draw(this->player.getShape());
+    this->player.draw(this->window); // Draw the player
+    //this->window.clear(sf::Color(100, 100, 100)); // nền xám để test alpha
 }
 void Game::render() {
     this->window.clear(); // Clear the window

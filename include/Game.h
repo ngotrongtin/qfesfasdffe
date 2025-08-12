@@ -10,9 +10,11 @@ private:
     Event event;
     VideoMode videoMode;
     Player player;
+    Sprite backgroundSprite;
+    Texture backgroundTexture;
     // variables
     const int DEFAULT_VIDEO_MODE_WIDTH = 800;
-    const int DEFAULT_VIDEO_MODE_HEIGHT = 600;
+    const int DEFAULT_VIDEO_MODE_HEIGHT = 634;
 public:
     Game();
     ~Game();

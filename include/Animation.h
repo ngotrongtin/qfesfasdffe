@@ -28,6 +28,6 @@ class Animation{
         int currentFrame; 
         Animation();
         Animation(const std::vector<AnimationFrame>& frames, float switchTime,sf::Sprite& sprite);
-        void update(float deltaTime, bool facingRight, int flipFixPix = 0); // Update the animation frame based on time and direction
+        void update(float deltaTime, bool facingRight); // Update the animation frame based on time and direction
         const sf::IntRect& getCurrentRect() const; // Get the current texture rectangle
 };

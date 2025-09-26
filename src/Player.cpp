@@ -111,14 +111,14 @@ void Player::draw(RenderWindow& target) {
                 this->sprite.setTextureRect(this->idleAnim.getCurrentRect());
                 break;
             case PlayerState::Running:
-                this->runAnim.update(deltaTime, this->facingRight, 80); // Update running animation
+                this->runAnim.update(deltaTime, this->facingRight); // Update running animation
                 this->sprite.setTextureRect(this->runAnim.getCurrentRect());
                 break;
             case PlayerState::Jumping:
                 // Handle jumping frames
                 break;
             case PlayerState::Attacking:
-                if (this->attackAnim.currentFrame < this->attackAnim.frames.size())
+                if (this->attackAnim.currentFrame < this->attackAnim.frames.size() - 1)
                 {
                     this->attackAnim.update(deltaTime, this->facingRight);
                     this->sprite.setTextureRect(this->attackAnim.getCurrentRect());
@@ -141,12 +141,12 @@ void Player::draw(RenderWindow& target) {
 
 void Player::moveLeft() {
     this->facingRight = false;
-    this->sprite.move(-3.f, 0.f);
+    this->sprite.move(-5.f, 0.f);
 }
 
 void Player::moveRight() {
     this->facingRight = true;
-    this->sprite.move(3.f, 0.f);
+    this->sprite.move(5.f, 0.f);
 }
 
 void Player::attack() {

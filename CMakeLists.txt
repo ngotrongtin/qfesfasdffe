@@ -7,6 +7,7 @@ project(Tutorial VERSION 1.0)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 set(SFML_DIR "D:/System_setup/sfml/SFML-2.6.1")
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 configure_file(TutorialConfig.h.in TutorialConfig.h)
 
 
@@ -31,4 +32,5 @@ target_link_libraries(Tutorial
     ${SFML_DIR}/lib/libsfml-graphics.a
     ${SFML_DIR}/lib/libsfml-window.a
     ${SFML_DIR}/lib/libsfml-system.a
+    ${SFML_DIR}/lib/libsfml-audio.a
 )

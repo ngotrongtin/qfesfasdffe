@@ -4,7 +4,8 @@
 #include "Player.h"
 #include "Common.h"
 using namespace sf;
-class Game {
+class Game
+{
 private:
     // instances
     RenderWindow window;
@@ -16,14 +17,15 @@ private:
     // variables
     const int DEFAULT_VIDEO_MODE_WIDTH = 800;
     const int DEFAULT_VIDEO_MODE_HEIGHT = 634;
+
 public:
     Game();
     ~Game();
-
     void initialize();
-    bool isRunning() const {
+    bool isRunning() const
+    {
         return window.isOpen();
-    }   
+    }
     void draw();
     void update();
     void render();

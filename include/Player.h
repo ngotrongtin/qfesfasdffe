@@ -2,14 +2,16 @@
 #include "Animation.h"
 using namespace sf;
 
-enum class PlayerState {
+enum class PlayerState
+{
     Idle,
     Running,
     Jumping,
     Attacking
 };
 
-class Player {
+class Player
+{
 private:
     // instances
     Texture texture;
@@ -19,11 +21,11 @@ private:
     sf::Clock clock;
     float animationTimer = 0.0f;
     float animationSpeed = 0.15f;
-    
+
 public:
     Player();
     ~Player();
-    //public variable
+    // public variable
     PlayerState currentState;
     PlayerState oldState;
     Animation runAnim;
@@ -31,7 +33,9 @@ public:
     Animation attackAnim;
     void moveLeft();
     void moveRight();
-    void attack();
-    void update(Event& event);
-    void draw(RenderWindow& target);
+    void attack(float deltaTime);
+    void handleEvents(Event &event);
+    // main functions
+    void update();
+    void draw(RenderWindow &target);
 };

@@ -3,7 +3,10 @@
 #include <SFML/Audio.hpp>
 #include "Player.h"
 #include "Common.h"
+#include "Enemy.h"
 using namespace sf;
+
+// Main Game class
 class Game
 {
 private:
@@ -14,6 +17,7 @@ private:
     Player player;
     Sprite backgroundSprite;
     Texture backgroundTexture;
+    Enemy enemy;
     // variables
     const int DEFAULT_VIDEO_MODE_WIDTH = 800;
     const int DEFAULT_VIDEO_MODE_HEIGHT = 634;

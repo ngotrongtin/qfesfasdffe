@@ -1,6 +1,10 @@
+#ifndef ANIMATION_H
+#define ANIMATION_H
+
 #include <vector>
 #include <SFML/Graphics.hpp>
 
+// Structure to hold individual animation frame data
 struct AnimationFrame
 {
     float x;
@@ -17,6 +21,7 @@ struct AnimationFrame
     }
 };
 
+// Animation class to manage a sequence of frames
 class Animation
 {
 private:
@@ -30,6 +35,8 @@ public:
     int currentFrame;
     Animation();
     Animation(const std::vector<AnimationFrame> &frames, float switchTime, sf::Sprite &sprite);
-    void update(float deltaTime, bool facingRight); // Update the animation frame based on time and direction
+    void update(float deltaTime, bool facingRight = true); // Update the animation frame based on time and direction
     const sf::IntRect &getCurrentRect() const;      // Get the current texture rectangle
 };
+
+#endif // ANIMATION_H

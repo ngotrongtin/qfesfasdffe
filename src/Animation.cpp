@@ -16,7 +16,7 @@ Animation::Animation(const std::vector<AnimationFrame>& frames, float switchTime
 
 Animation::Animation(){}
 
-void Animation::update(float deltaTime, bool facingRight = true)
+void Animation::update(float deltaTime, bool facingRight)
 {
     if (this->frames.empty())
          return;

@@ -1,9 +1,12 @@
 #include <string>
+
+// Player related constants
 namespace PLAYER
 {
     const std::string PLAYER_SHEETS_LINK = "../assets/sheets/player_sheet.png";
 }
 
+// Game related constants
 namespace GAME
 {
     const std::string WINDOW_TITLE = "2D platformer game";

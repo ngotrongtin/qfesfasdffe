@@ -7,6 +7,7 @@ Player::Player()
     this->texture.loadFromFile(PLAYER::PLAYER_SHEETS_LINK); // Load player texture
     this->facingRight = false;                              // Mặc định là quay sang phải
     this->sprite.setTexture(this->texture);
+    this->isRunning = false;
     this->sprite.setPosition(147.f, 547.f);
     this->idleAnim = Animation(
         {{11, 63, 160, 114},
@@ -60,11 +61,6 @@ Player::Player()
     this->oldState = PlayerState::Idle;
 }
 
-Player::~Player()
-{
-    // Destructor implementation
-}
-
 // handle instant events
 void Player::handleEvents(Event &event)
 {
@@ -82,10 +78,6 @@ void Player::handleEvents(Event &event)
             break;
         }
     }
-    else if (event.type == Event::KeyReleased)
-    {
-        this->currentState = PlayerState::Idle;
-    }
 }
 
 void Player::update()
@@ -94,15 +86,19 @@ void Player::update()
     {
         this->currentState = PlayerState::Running;
         this->moveRight();
+        this->stateReset();
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
         this->currentState = PlayerState::Running;
         this->moveLeft();
+        this->stateReset();
     }
-    else
+
+    if( !sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && !sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && this->currentState != PlayerState::Attacking)
     {
         this->currentState = PlayerState::Idle;
+        this->stateReset();
     }
 }
 
@@ -159,8 +155,18 @@ void Player::attack(float deltaTime)
     }
     else
     {
-        // If attack animation is done -> reset to Idle
-        this->attackAnim.currentFrame = 0;
         this->currentState = PlayerState::Idle;
+        this->stateReset();
     }
+}
+
+// Reset state after attack animation ends
+void Player::stateReset()
+{
+    this->attackAnim.currentFrame = 0;
+}
+
+sf::Vector2f Player::getPosition() const
+{
+    return this->sprite.getPosition();
 }
